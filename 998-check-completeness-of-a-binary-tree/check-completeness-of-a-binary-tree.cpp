@@ -13,8 +13,6 @@ class Solution {
 public:
     bool isCompleteTree(TreeNode* root) {
         if (!root) return true;
-        // if (!root->left && root->right) return false;
-        // if (!isCompleteTree(root->left) || !isCompleteTree(root->right)) return false;
         queue<TreeNode*> q;
         q.push(root);
         int flag = 0;
