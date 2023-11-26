@@ -8,11 +8,6 @@ public:
             for (int j = 1; j < i; j++)
             {
                 cur[j] = (ans[i - 1][j] + ans[i - 1][j - 1]);
-                // if (j == 0 || j == i - 1) cur.push_back(1);
-                // else 
-                // {
-                //     cur[j] = (ans[i - 1][j] + ans[i - 1][j - 1]);
-                // } 
             }
             ans.push_back(cur);
         }
