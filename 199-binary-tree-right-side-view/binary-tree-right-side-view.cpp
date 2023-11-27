@@ -10,18 +10,6 @@
  * };
  */
 class Solution {
-private:
-    void rightTraversal(TreeNode* root, vector<int>& res)
-    {
-        while(root)
-        {
-            res.push_back(root->val);
-            if (root->right)
-                root = root->right;
-            else 
-                root = root->left;
-        }
-    }
 public:
     vector<int> rightSideView(TreeNode* root) {
         if (!root) return {};
