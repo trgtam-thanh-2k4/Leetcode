@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    // int count = 0;
+    int count = 0;
     int countNodeValue(TreeNode* root)
     {
         if (!root) return 0;
@@ -22,19 +22,21 @@ public:
         if (!root) return 0;
         return 1 + countNode(root->left) + countNode(root->right);
     }
-    // void NLR(TreeNode* root)
-    // {
-    //     if (!root) return;
-    //     if (floor(countNodeValue(root) / countNode(root)) == root->val) count++;
-    //     NLR(root->left);
-    //     NLR(root->right);
-    // }
+    void NLR(TreeNode* root)
+    {
+        if (!root) return;
+        if (floor(countNodeValue(root) / countNode(root)) == root->val) count++;
+        NLR(root->left);
+        NLR(root->right);
+    }
     int averageOfSubtree(TreeNode* root) {
-        if (!root) return 0;
-        int sum = root->val + countNodeValue(root->left) + countNodeValue(root->right);
-        int nodes = 1 + countNode(root->left) + countNode(root->right);
-        int avg = floor(sum / nodes);
-        if (avg == root->val) return 1 + averageOfSubtree(root->left) + averageOfSubtree(root->right);
-        return averageOfSubtree(root->left) + averageOfSubtree(root->right);
+        // if (!root) return 0;
+        // int sum = root->val + countNodeValue(root->left) + countNodeValue(root->right);
+        // int nodes = 1 + countNode(root->left) + countNode(root->right);
+        // int avg = floor(sum / nodes);
+        // if (avg == root->val) return 1 + averageOfSubtree(root->left) + averageOfSubtree(root->right);
+        // return averageOfSubtree(root->left) + averageOfSubtree(root->right);
+        NLR(root);
+        return count;
     }
 };
